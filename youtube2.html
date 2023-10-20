@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        #header {
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 35px;
+        }
+        
+        .search-container {
+            display: flex;
+            justify-content: left;
+            margin: 25px;
+        }
+        
+        .search-container input[type=text] {
+            padding: 15px;
+            border: solid 1px #dcdcdc;
+            border-radius: 30px 0 0 30px;
+            font-weight: bold;
+        }
+        
+        .search-container button {
+            padding: 10px;
+            background: #f8f8f8;
+            border: solid 1px #dcdcdc;
+            border-left: none;
+            cursor: pointer;
+            border-radius: 0 30px 30px 0;
+        }
+        
+        #mic {
+            margin: 10px;
+            border: solid 1px #dcdcdc;
+            border-radius: 50px 50px 50px 50px;
+            font-weight: bold;
+        }
+        
+        <!-- .button-overlay {
+            position: absolute;
+            display: inline-block;
+        }
+        
+        -->.button-overlay #home {
+            position: absolute;
+            top: 3%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #shorts {
+            position: absolute;
+            top: 12%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #subscription {
+            position: absolute;
+            top: 22%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #you-channel {
+            position: absolute;
+            top: 36%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #history {
+            position: absolute;
+            top: 45%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #videos {
+            position: absolute;
+            top: 54%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #watch {
+            position: absolute;
+            top: 63%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #show-icon {
+            position: absolute;
+            top: 71%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #code-harry {
+            position: absolute;
+            top: 85%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        .button-overlay #tedx {
+            position: absolute;
+            top: 94%;
+            left: 30%;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        
+        #content {
+            font-family: Roboto, Arial, sans-serif;
+            display: inline-block;
+            width: 85%;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="search-container">
+        <b> 
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIALUAtQMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAAAAQUGAgME/9oACAEBAAAAAOlBKJZQSkLLAWAssCwAApCwFgLLLLLBZYCyxUsfkAB7/QLLHOY4AHV6BUMPAAB6639hUEssWWWUssAAAKQzMaAB76T7WWF5fLAA6bWiofHLAB71xZYCywWWCofPPAB60hSOYywAOo0yoZWFAA+nT/oUhZYLLAWWFlgssBZSFgLAWWWWWCywFgqAAFgUAAAH/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAoCAhADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/EAC0QAAEDAwMDBAEDBQAAAAAAAAEAAjEDBBAVIFQRFFEFMFOREkBBUhMyYXGh/9oACAEBAAE/AP1IGZxKKAzOJwBmcTgoDM4lEoDM4nbOJ3TiUTsnE753TklAZnE4AwFKhTunEokAEkgASTAXfWXIYtQsuQxd/Zchi7+y5DF39jyGLv7LkMWoWXIYu/suQxahZchi7+y5DF39lyGLv7HkMTLu2quDWV2E+xKK9YrvNf8AoQxnvel1n17bq+WO/HdKJx6rZPqPFekOph4USD7jKdSq4Npsc4+AFY23a24ZL5dvCOOnUwug8BdAf2CIHgIAeAiB4C/EeAugMALoPAXQH9gugH7BADwFCGZyBmVClE4JxOJyTsndKv7/ALXpTpgGotUv+QVqd/yHLU7/AJDlqd/yHLU77kOWp3/IctTv+Q5anf8AIctTv+Q5anf8hy1O/wCQ5anf8hyZ6resmoHjw5W1dlxRZVZB/wCFTidk49XY4XjnmHgEe96Ox4tCTD3kjE7JxKr0KNdn4VWdQtFo/NUWi0vnetEpfO9aLS+d60Sl871olL56i0Sl871olL53rRaXz1FolL53rRaXzvWiUvneqfo1sD1e570AGgADoBAU7DicDbO+cTunNWtToML6jw0LV7MfKtYtPFVaxaeKq1i08VVrFn4qrWLTxVWsWn8aq1i08VVrFp4qrWLPxVWsWniqtYs/FVU/VbOo4Alzf9hdfYK9Xe83hYYYB73o7y+0I/g/oEcTkDPqNgbnpUpf3hGyvBNtUXZ3fGq/S7O749T6XZ3fGq/S7S749T6XZ3fGq/S7O749T6XZ3fGqfS7O741T6XZ3fHqfS7O741T6XaXfHqfSp2F5UPQUS3/Lla0G21BtFpiTifYlRsJxOJyTicTsnE75xOwKcTsnE75xOScTidhxO+cTk4nE5OZ3zids4nJKA/U//8QAFBEBAAAAAAAAAAAAAAAAAAAAcP/aAAgBAgEBPwAQ/8QAFBEBAAAAAAAAAAAAAAAAAAAAcP/aAAgBAwEBPwAQ/9k="
+                height="30" width="25px">&nbsp;&nbsp;&nbsp;
+
+        <img src="https://th.bing.com/th?q=YouTube+Video+Icon&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247"
+           height="40" width="40"><label id="header" for="s"> YouTube</label></b>
+
+        <sup style="font-size: 10px; font-family: Roboto, Arial, sans-serif;">IN</sup> <pre>                                     </pre>
+        <input type="text" id="s" id="search" placeholder="Search" style="height: 30px; width:400px;">
+        <button type="submit"><i class="fa fa-search"></i></button>
+
+        <pre>  </pre><img src="https://th.bing.com/th/id/OIP.-NqSzs_SSZjAXfTBZHI9DQHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7" id="mic" height="40" width="40">
+        <pre>                          </pre>
+        <img src="https://cdn3.iconfinder.com/data/icons/youtube-9/512/6_Video_Camera_Ui-512.png" alt="create video icon" height="40" width="40" style="margin: 10px;">
+        <img src="data:image/jpeg;base64,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"
+            height="40" width="40" style="margin: 10px;">
+        <pre>      </pre>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEUAAAD////d3d38/Pzg4OCCgoLv7+9JSUmpqam4uLivr6/k5OSQkJATExMZGRn19fVgYGB0dHRRUVGhoaHExMRnZ2dYWFhCQkIdHR3KysrW1tYlJSW1tbU9PT0vLy8JCQmMjIwWFhY1NTWYmJh8fHxubm5fztJAAAAK5klEQVR4nOVd6WKqzBIcViEuQCRuRCUu7/+KNxyjgsLQPd3N+Hnr9zlChVl6L+VIw0vcOJpPssV2V6yme7WfrorddpFN5lHsJp7485Xgb4d+Xp6Xe6XDfnkucz8UfAsphm6cjWZabnXMRlnsCr2JBMNxlE7B5O6YptFY4G24GSZ5AP90LR8zyBPmN2JlGMZfBHZXfMWs25KRYZzqDxU49mnM91pcDN2Aid0VAdfJw8Iw+Rgx86sw+mDZkgwMwwnlbNFhNmHYkWSG40yI3gUZ+QIhMnRTUX4VUuKGJDH0z+L8Kpx9SwyF12cdGWE/GjP0JoPxq3A0dkJMGcY/gxJU6sfUCDBj6H4OzK/Cp9mRY8Rw2AV6x2QghpvCEkGlis0ADL3SGr8KJfrEwTL0t1YJKrXFXo5IhpFlfhUiQYaJvI0GQYryOTAMXXtHTBMF5t5AMPy2TayGbwmG3E48DQE7Q8+GFaPDJ/TaADIMbV8Sz9gC/Q0YQ3dlm08LVrDzBsRwbZtMB9ZcDHPbTDqR8zCMbfPQAOA09jP8sM1Ciw86Q06Cq8N2OVpuD5znVi/FPoZcS7Q4R5tbIjT0N9GZywTsW6g9DHkOmeI4fjaWk/GRh2TPcaNnyHJNnLvvLZcl4Kq/NLQMXYbHB/qw/JjD3NVe/TqGIf1EWPR75P6C/JSVzoDTMPTotigsxkk/zbYaM1zDkOxNjKCx+JCcfvw0YUjeIHAXTvRhnQzJHv0RQdBxjtTHdXr9XQzJxygyIkaP4nUdqB0ME+pljPuCFahfseiIwHUwpIYNMXvwCupeTDEMqUtmZEDQcagnavvGaGXoEx+1N0vZhtSKo1bzoo0h+ao3TWZSr/7Wi7+NYUl8kOb67QHVyChhDDfExyjzEpgx9dEt+cUWhtSLwuQcvYJ6nhYQhuQUNqWKifwRnxPhTwzJxsyZQNBxyC7xk2nzxJDsURik2msgHwJPx9wjQ7KvdiARdJwD9QUer6oHhh65EAhvkDZBdjJ+Hi7FB4b0ShlqaS89NvRw2DQZko8yRa/Ipb9C8zBvvhG92vCLzJBe7p91M6Ra3Arv+D6DoaClYYE3GDLEZyH5Lj0YwuyNK7nOkCMATC89Dxneon7c1Rly1APRu+08hreou/s1hgwHqSoYGHLka2rHaY0hR9n2lkzQcTjKPmrH6Z0hx/onOL93sFTu3M+DO0OWwt8FA0N6pkbVDZsbw4SltedlvuHsFj29MeTJ17/KPqzl928MebrPXuUsrYVsrww5bvsKr3EfVrje+leGXLWVr2HTVLgGxK4MmX72NezSC5oM2Sq7XsK3uCBuMGQrUX8F//APaZ0hOSdyB5kh25v85Ycub8RYfmg/TnNDXGPItjJeINZ2x9edYcL3q/bjpTUkN4asRcCWY9515DeGrK0UmZ5CD1h7i4MbQ96JAVZzTw3Mrgx5f9Zq/vAB4z+G3C13FnPAD4j+GHL33NnL4z8i/WNoMvJIC1u1GE+YXhgyWhFXmK1T7jWq/llYSqRjxE5NVAvifwwlxlucDAieBN4j+8dQYj6QhdrEVowqhqHMhKA5kuBc5C1m4S9DhqRhK3AjHqQGUfi/DMV67zB7UWIP/kP+y7CU+nG1BNfqL8XeofxlKDkJaah+i26cfxnK/f3UUD0zGiwd5fEFoVpx0i/VUGwHXrD3FGcEox2ZpndNfphWogSs0idsj35L/6F/HKLJ31UD9THv0mjtXtM2nruO0t0wD47VoBNnpsVheSjYvTUdIiVjLb0O5srW3K6hMFHDjQa0g0yJ3rcvgIV6vbEsvNiqgQ5ta9ipV5luJYVCveJsHU6s1KDXrwVMlbBrYR3vzq/Cu3Pc/x/sw/c/S9//Pnx/m+b97dL39y3e3z98fx9/wDjN4TM9n4LTOf3kLO3qwXyAWFuxmHzk/mMBuOfnH5OF/F0VicZLD4sy3+hr271NXi4kP2ksFvMeBfEYWrjvjeNAJNeuqpi3RN5iVa7xMj/JupSwIBP23NPP17d5R0L4/cWsm7H3ePOHRUaWTUvyjPP4WbLmgE8Ga7OV5JovqXjmy+NvvznlKL1vJnu5ZKrF+Cn59RndkmNL5iz1NLs5t2bhBcmc7tr5DDVRh1hOLdWLicbAv5ooWl1bwahU2IqYdLKOqLWJM3ojVz8iwiLLiPWlpcz+e0RSGr9hTKoRRimF0GCsjuJS6rzbpr/JoTR6x786b6Na/R2t+QePjcnNca3VN3CCR8PswDoSgzP/2m+Br5Gn9TaZAn/oX3tm0H1P2ApnLmBjSre+J2y3EbWJ0hzIavd77xrO+LazRC/ALdR7/yEqkkHv1qYA1c977yHF/L+dnJ0NgYe4NGp9wBjDjT40gQbEjqr3csP78WmzOzkAjro0+vHhZo3dNVoBPPukMVMBvEyHNUbbUQLftTkXAzqrgawDzgCoCfb3z3HzaTjGQNEB66V9nE8DcxLtWTN1wCybxxlDsGgNSMpNHCAFo6c5UbBZXyQZdzaA4p/Ps75A89pe4aCBHTUt89pAPY7/HYYtM/dAM7Y6RDIGBsQ8aZubCPJMbPm+dUD84NbZl7CbdLgIYhdA91r7/FLQ198NH4JqIoG4Tx0zaGF/HdtbEeQjdM0Rhjkmdo3vEvKKjTiLwTzvfulPOcBmkHbP8wYGeuzZbjDFSc1MdujcyaEj+lcAB4E1q10epgACA5J2bBugY/jgAJnpW/zQx5TiEQLfTa9vAQ1nFMNTDIE5xB6NEvAwqtnQC3UMTK706szAM8LD2m/mr0XQexry0gALEwP0nhCaXZ3CmOwAS4aCNLsQ4yeHCkzBq+1humtOCf7B8xAhcA+eNwJq52H0D7fy540LL/wC6x+iivmkNyNGtResYYmrzsgkfeIEk/RF6JDiSmxWcinFHFPbjtKSReoBZzIHjofK2iP1gJHFbnuJGswY10WA1HRG63KPuH3GDbIECq3LjR/pG3C6GyH66Z0/pZmDjx55G3Cdqgl6YLImsalhaCB8POH4jiG+JbL1qu9n6IQGfUgnsnKAQTfJSveH1ao1GFUPLyjXY27Ulqz9q+r1KMBuWQP7wOxDuoFZl5neUe1R3DBtqCmOT02jenj+0bSWu2fN9GmKmBfy705r8PzS9cm8O6bP2OhVTaFoee2XQd4XsRrnwZLSAtmbY+jXhSHLlS2DaB0+r1kvXEcBufmxP4kCUL5h6oU+pKcgKMtJWQbBKWVqbgbYwxBtH7FZymRALiaQepHZpSEPUDwTps/kvuKcnhXs1gUqUIWvN+RlC7yLoBpbHre4BhWfUIsCriLGLAFDBFzMBqGThvT6RYGIYWKU4Iy7ALmB6nxEad0l3Jo7ZkhRsQSkmt+gk6M7gOw9xuoV+ravjS22ihetyOiVVgmW6OCzgebkxt6BUxhEZY1UNW3NB8MJu1AYOq4NC+fTLPpjqowaM88C6sWPaWrEWPvVG3apHo3TWwR12/FwAwkzQiydpN/rS6rw1PiRGlmICsWuvB2XEvMEZA1m4bWakevn6CrTTjiRUW5TasaRy2Jg+OtzfEjMBBx9sOQjWRg6VVaFmZ9hducZXAx/EadcAwr3KWPlAyPD3x0Zc0iYf8WsBcisDJ1q7GFAOXdmAXnw4iO4GVYYR6nJYKZpGkmUVkswrODG2Qj+MWejLJaqcpRiWCH08/LckxzcL89l7ktW/ksyvMBL3DiaT7LFdlespnu1n66K3XaRTeZR7CbyJbj/A2sPnknwjDOUAAAAAElFTkSuQmCC"
+            height="40" width="40" style="margin:9px">
+    </div>
+
+
+
+
+
+    <hr>
+    <br>
+    <aside class="button-overlay" style=" width: 15%;   float: left;">
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTijCnIBcgTRocORSTj_vIp4Yo_E9HgMrfNIw&usqp=CAU" height="35" width="35" style="margin:10px">
+            <span id="home">Home</span>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.6RchOb1h_sbj_ILtHEW-HAHaHa?pid=ImgDet&w=182&h=182&c=7&dpr=1.3" height="35" width="35" style="margin:10px">
+            <span id="shorts">Shorts</span>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.FVeEjG8xJ2IBsCdPAPXZ4gHaHa?w=180&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" height="30" width="30" style="margin:10px">
+            <span id="subscription">Subscriptions</span>
+        </div>
+        <hr>
+        <span style="font-family: Roboto, Arial, sans-serif; margin: 10px;"><b>You&nbsp;&nbsp;></b></span>
+        <div>
+            <img src="https://cdn2.iconfinder.com/data/icons/ui-ux-essencial-vol-5-2/16/user-account-person-profile-512.png" alt="your chainnel" height="30" width="30" style="margin:10px">
+            <span id="you-channel">Your&nbsp;Channel</span>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.VxcnybZV6CBs-b6qEGORdAHaHa?pid=ImgDet&w=182&h=182&c=7&dpr=1.3" alt="history icon" height="35" width="35" style="margin:10px">
+            <span id="history">History</span>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.0poYVTga8X1gf38sNL-D0AHaHa?w=181&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="videos" height="30" width="30" style="margin:10px">
+            <span id="videos">Your&nbsp;Videos</span>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.8usWst0iarwkNhGnTYhUJgAAAA?pid=ImgDet&w=182&h=182&c=7&dpr=1.3" alt="watch later" height="30" width="30" style="margin:10px">
+            <span id="watch">Watch&nbsp;later</span>
+        </div>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.zbhOboMWDwYsH9RBfadEGgHaHa?w=180&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="show more icon" height="30" width="30" style="margin:10px">
+            <span id="show-icon">Show&nbsp;More</span>
+        </div>
+        <hr>
+        <span style="font-family: Roboto, Arial, sans-serif; margin: 10px;"><b>Subscriptions</b></span>
+        <div>
+            <img src="https://th.bing.com/th/id/OIP.TVlqSFs2YS58vB2kBx1MzgHaHa?w=166&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="code-with harry" height="30" width="30" style="margin:10px">
+            <span id="code-harry">CodeWithHarry</span>
+        </div>
+        <div>
+            <img src="https://www.shareicon.net/data/512x512/2016/11/03/849460_social_512x512.png" alt="game-zone" height="30" width="30" style="margin:10px">
+            <span id="tedx">TEDx&nbsp;Talks</span>
+        </div>
+    </aside>
+
+
+    <main id="content">
+        <div class="buttons">
+            <button style="height: 35px; width:40px;   border-radius: 10px 10px 10px 10px;">All</button>&nbsp;
+            <button style="height: 35px; width:70px; border-radius: 10px 10px 10px 10px;">Mixes</button>&nbsp;
+            <button style="height: 35px; width:70px; border-radius: 10px 10px 10px 10px;">Python</button>&nbsp;
+            <button style="height: 35px; width:80px; border-radius: 10px 10px 10px 10px;">Thoughts</button>&nbsp;
+            <button style="height: 35px; width:80px; border-radius: 10px 10px 10px 10px;">Seminars</button>&nbsp;
+            <button style="height: 35px; width:110px; border-radius: 10px 10px 10px 10px;">Game&nbsp;Shows</button>&nbsp;
+            <button style="height:35px; width:70px; border-radius: 10px 10px 10px 10px;">Stoks</button>&nbsp;
+            <button style="height:35px; width:70px; border-radius: 10px 10px 10px 10px;">Music</button>&nbsp;
+            <button style="height:35px; width:80px; border-radius: 10px 10px 10px 10px;">C++&nbsp;CPP</button>&nbsp;
+            <button style="height:35px; width:70px; border-radius: 10px 10px 10px 10px;">Videos</button>&nbsp;
+            <button style="height:35px; width:70px; border-radius: 10px 10px 10px 10px;">Gadgets</button>&nbsp;
+            <button style="height:35px; width:70px; border-radius: 10px 10px 10px 10px;">Tools</button>&nbsp;
+            <button style="height:35px; width:80px; border-radius: 10px 10px 10px 10px;">Wathed</button>&nbsp;
+            <button style="height:35px; width:80px; border-radius: 10px 10px 10px 10px;">Grammer</button>&nbsp;
+            <button style="height:35px; width:100px; border-radius: 10px 10px 10px 10px;">New&nbsp;To&nbsp;You</button>&nbsp;
+        </div>
+        <div class="Main-videos" style=" display: inline-block">
+            <a href="https://youtu.be/f1qz8vn3XbY?si=v9GSspLTW6YHhBwS" target="_blank">
+                <img src="https://th.bing.com/th/id/OIP.xf-BnBmT2j32OML3OwNiywAAAA?w=286&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="ghar se" width="340" height="200" style="margin:40px;  border-radius: 10px 10px 10px 10px;">
+            </a>
+            <a href="https://youtu.be/epAFDEJImrU?si=QFX8qP-sIOShY_G7" target="_blank"> <img src="https://th.bing.com/th/id/OIP.OQSElwTTSL63FPr4c0JjvQHaEK?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="darshana song"
+                    width="340" height="200" style="margin:40px;  border-radius: 10px 10px 10px 10px;"></a>
+            <a href="https://youtu.be/huR7C5kmZd0?si=N_IODZK_dAXXwxL9" target="_blank"> <img src="https://th.bing.com/th/id/OIP.6eNJ-oddzQTO4Lm9kxgUxwHaEK?w=283&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="wakt kibate" width="340" height="200" style="margin:40px;  border-radius: 10px 10px 10px 10px;">
+            </a>
+            <pre style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; display: inline-block; margin-top: -35px;">
+            Ghar Se Nikalte Hi Song | Amaal Mallik Feat.
+            Armaan Malik | Bhushan Kumar | Angel
+                </pre>
+            <pre style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; display: inline-block; margin-top: -35px;">
+                Darshana - Official Video Song | Hridayam 
+                | Pranav | Darshana | Vineeth | Hesham 
+                </pre>
+            <pre style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; display: inline-block; margin-top: -35px;">
+                        Waqt ki baatein by dream note ♥️
+              </pre>
+        </div>
+        <div class="Main-videos" style=" display: inline-block">
+            <a href="https://youtu.be/hoNb6HuNmU0?si=mE8JywO2Mdj_ICn2" target="_blank"> <img src="https://i.ytimg.com/vi/3PiCj-7-3GE/hqdefault.jpg" alt="Dhamal Movie" width="340" height="200" style="margin:40px;  border-radius: 10px 10px 10px 10px;"></a>
+            <a href="https://youtu.be/RLzC55ai0eo?si=9Zgc7Ion1I2TEAkn" target="_blank"> <img src="https://th.bing.com/th/id/OIP.rnYYSCuOaI4kPLG-BXZMugHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Hireeye song" width="340" height="200" style="margin: 40px;  border-radius: 10px 10px 10px 10px;">
+            </a>
+            <a href="https://youtu.be/ElZfdU54Cp8?si=NCLhXXQedg1vdkin" target="_blank">
+                <img src="https://th.bing.com/th/id/OIP.RFHaKZbSPr0Sg-BGyofZkgHaEK?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Apanabanale" width="340" height="200" style="margin:40px;  border-radius: 10px 10px 10px 10px;"></a>
+            <pre style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; display: inline-block; margin-top: -35px;">
+          Full Song: KHAIRIYAT (BONUS TRACK) 
+          | CHHICHHORE | Sushant, Shraddha 
+          | Pritam, Amitabh B|Arijit Singh
+                </pre>
+            <pre style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; display: inline-block; margin-top: -35px;">
+                            Heeriye (Official Video) Jasleen Royal 
+                            ft Arijit Singh| Dulquer Salmaan|
+                            Aditya Sharma |Taani Tanvir
+                </pre>
+            <pre style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; display: inline-block; margin-top: -35px;">                             Apna Bana Le - Bhediya | Varun Dhawan,
+                             Kriti Sanon|
+                </pre>
+        </div>
+    </main>
+
+
+</body>
+
+</html>
